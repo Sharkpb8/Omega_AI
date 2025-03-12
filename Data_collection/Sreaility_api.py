@@ -36,15 +36,20 @@ for i in houses:
         new = 1 if "new_building" in house["labelsAll"][0] else 0
         furnished = 1 if "furnished" in house["labelsAll"][0] else 0
         cellar = 1 if "cellar" in house["labelsAll"][0] else 0
+        parkingLots = 1 if "parking_lots" in house["labelsAll"][0] else 0
+        reconstructed = 1 if "after_reconstruction" in house["labelsAll"][0] else 0
+        balcon = 1 if "balcony" in house["labelsAll"][0] else 0
+        terrace = 1 if "terrace" in house["labelsAll"][0] else 0
 
-        cleaned_houses.append([price,lat,lon,numbers[0],numbers[1],garage, new, furnished, cellar])
+
+        cleaned_houses.append([price,lat,lon,numbers[0],numbers[1],garage, new, furnished, cellar, parkingLots, reconstructed, balcon, terrace])
         print(len(cleaned_houses))
 
 print("Domy jsou vyčištěny")
 
 with open("houses.csv","w",newline='') as f:
         csvwriter = csv.writer(f)
-        rows = ["price", "lat", "lon", "land_area","usable_area", "garage", "new", "furnished", "cellar"]
+        rows = ["price", "lat", "lon", "land_area","usable_area", "garage", "new", "furnished", "cellar", "parkingLots", "reconstructed", "balcon", "terrace"]
         csvwriter.writerow(rows)
 
 for i in cleaned_houses:
