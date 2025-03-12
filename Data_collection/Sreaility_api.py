@@ -32,15 +32,19 @@ for i in houses:
         lon = house["gps"]["lon"]
         name = house["name"].replace("\u00a0", " ")
         numbers = re.findall(r'\d+(?:\s\d+)*', name)
+        garage = 1 if "garage" in house["labelsAll"][0] else 0
+        new = 1 if "new_building" in house["labelsAll"][0] else 0
+        furnished = 1 if "furnished" in house["labelsAll"][0] else 0
+        cellar = 1 if "cellar" in house["labelsAll"][0] else 0
 
-        cleaned_houses.append([price,lat,lon,numbers[0],numbers[1]])
+        cleaned_houses.append([price,lat,lon,numbers[0],numbers[1],garage, new, furnished, cellar])
         print(len(cleaned_houses))
 
 print("Domy jsou vyčištěny")
 
 with open("houses.csv","w",newline='') as f:
         csvwriter = csv.writer(f)
-        rows = ["price", "lat", "lon", "land_area","usable_area"]
+        rows = ["price", "lat", "lon", "land_area","usable_area", "garage", "new", "furnished", "cellar"]
         csvwriter.writerow(rows)
 
 for i in cleaned_houses:
