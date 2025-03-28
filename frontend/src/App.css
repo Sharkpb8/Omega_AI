@@ -82,14 +82,14 @@ h1, h2 {
 
 /* Select Input Styling */
 .MuiSelect-root {
-  background-color: rgba(50, 50, 50, 0.85);
+  background-color: rgba(50, 50, 50, 0.15);
   border-radius: 8px;
   color: #b0bec5;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .MuiSelect-root:hover {
-  background-color: rgba(50, 50, 50, 1);
+  background-color: rgba(50, 50, 50, 0);
   box-shadow: 0 0 8px #42a5f5;
 }
 
