@@ -177,6 +177,17 @@ function App() {
         ))}
       </Select>
     </FormControl>
+    <TextField id="room_count" label="Room count" type="number" variant="filled"
+      slotProps={{
+        inputLabel: {
+          shrink: true,
+        },
+      }}
+      sx={{backgroundColor:"rgba(32, 36, 36, 0.23)",
+        '& .MuiInputLabel-root.Mui-focused':{color:"rgb(66, 221, 221)"},
+        '& .MuiFilledInput-root::after':{borderBottomColor:"rgb(66, 221, 221)"}
+        }}
+    />
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Condition</InputLabel>
       <Select labelId="demo-simple-select-autowidth-label" id="condition" autoWidth label="Condition">
