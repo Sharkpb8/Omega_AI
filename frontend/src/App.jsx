@@ -128,6 +128,13 @@ function App() {
     9: "Po rekonstrukci",
   };
 
+  const textFieldSx = {
+    backgroundColor: "rgba(50, 50, 50, 0.6)",
+    "& .MuiInputLabel-root": { color: "#b0bec5" },
+    "& .MuiInputLabel-root.Mui-focused": { color: "#42a5f5" },
+    "& .MuiFilledInput-root::after": { borderBottomColor: "#42a5f5" }
+  };
+
   return (
     <>
     <TextField id="usable_area" label="Usable area" type="number" variant="filled"
@@ -136,10 +143,7 @@ function App() {
           shrink: true,
         },
       }}
-      sx={{backgroundColor:"rgba(32, 36, 36, 0.23)",
-        '& .MuiInputLabel-root.Mui-focused':{color:"rgb(66, 221, 221)"},
-        '& .MuiFilledInput-root::after':{borderBottomColor:"rgb(66, 221, 221)"}
-        }}
+      sx={{textFieldSx}}
     />
 
     <TextField id="land_area" label="Land area" type="number" variant="filled"
@@ -148,10 +152,7 @@ function App() {
           shrink: true,
         },
       }}
-      sx={{backgroundColor:"rgba(32, 36, 36, 0.23)",
-        '& .MuiInputLabel-root.Mui-focused':{color:"rgb(66, 221, 221)"},
-        '& .MuiFilledInput-root::after':{borderBottomColor:"rgb(66, 221, 221)"}
-        }}
+      sx={{textFieldSx}}
     />
     <FormGroup>
       <FormControlLabel id="garage" control={<Checkbox />} label="Garage" />
@@ -183,10 +184,7 @@ function App() {
           shrink: true,
         },
       }}
-      sx={{backgroundColor:"rgba(32, 36, 36, 0.23)",
-        '& .MuiInputLabel-root.Mui-focused':{color:"rgb(66, 221, 221)"},
-        '& .MuiFilledInput-root::after':{borderBottomColor:"rgb(66, 221, 221)"}
-        }}
+      sx={{textFieldSx}}
     />
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Condition</InputLabel>

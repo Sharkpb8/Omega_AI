@@ -1,3 +1,129 @@
-/* body{
-  background-color: rgb(206, 106, 181) !important;
-} */
+/* Overall Body & Container */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #0d47a1, #1e88e5, #42a5f5);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+/* Headings */
+h1, h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* TextField styling */
+.MuiTextField-root {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.MuiFilledInput-root {
+  background-color: rgba(50, 50, 50, 0.85);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.MuiFilledInput-root:hover {
+  background-color: rgba(50, 50, 50, 1);
+  box-shadow: 0 0 8px #42a5f5;
+}
+
+.MuiInputLabel-root {
+  color: #b0bec5;
+  font-weight: 500;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: #42a5f5;
+}
+
+/* Underline */
+.MuiFilledInput-root::after {
+  border-bottom: 2px solid #42a5f5;
+}
+
+/* Checkbox and Form Control styling */
+.MuiFormControl-root {
+  margin-bottom: 20px;
+}
+
+.MuiFormControlLabel-root {
+  color: #ffffff;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.MuiFormControlLabel-root:hover {
+  transform: scale(1.05);
+}
+
+.MuiCheckbox-root {
+  color: #42a5f5;
+}
+
+.MuiCheckbox-root.Mui-checked {
+  color: #42a5f5;
+}
+
+/* Select Input Styling */
+.MuiSelect-root {
+  background-color: rgba(50, 50, 50, 0.85);
+  border-radius: 8px;
+  color: #b0bec5;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.MuiSelect-root:hover {
+  background-color: rgba(50, 50, 50, 1);
+  box-shadow: 0 0 8px #42a5f5;
+}
+
+.MuiSelect-icon {
+  color: #42a5f5;
+}
+
+/* Menu Items for Select */
+.MuiMenuItem-root {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: #42a5f5;
+  color: #121212;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  .MuiFormControl-root {
+    min-width: 100%;
+  }
+  .MuiTextField-root {
+    width: 100%;
+  }
+  .MuiFormControlLabel-root {
+    font-size: 12px;
+  }
+  .MuiInputLabel-root {
+    font-size: 14px;
+  }
+}
