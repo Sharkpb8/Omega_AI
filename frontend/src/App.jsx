@@ -147,7 +147,7 @@ function App() {
 
   return (
     <div className='container'>
-    <TextField id="usable_area" label="Usable area" type="number" variant="filled" value={usableArea} onChange={(e) =>{setUsableArea(parseInt(e.target.value))}}
+    <TextField id="usable_area" label="Usable area" type="number" variant="filled" value={usableArea} onChange={(e) =>{e.target.value<0?0: setUsableArea(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
           shrink: true,
@@ -155,7 +155,7 @@ function App() {
       }}
     />
 
-    <TextField id="land_area" label="Land area" type="number" variant="filled" value={landArea} onChange={(e) =>{setLandArea(parseInt(e.target.value))}}
+    <TextField id="land_area" label="Land area" type="number" variant="filled" value={landArea} onChange={(e) =>{e.target.value<0?0: setLandArea(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
           shrink: true,
@@ -186,7 +186,7 @@ function App() {
         ))}
       </Select>
     </FormControl>
-    <TextField id="room_count" label="Room count" type="number" variant="filled" value={roomCount} onChange={(e) =>{setRoomCount(parseInt(e.target.value))}}
+    <TextField id="room_count" label="Room count" type="number" variant="filled" value={roomCount} onChange={(e) =>{e.target.value<0?0: setRoomCount(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
           shrink: true,
