@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import { useState } from 'react';
 
 function App() {
 
@@ -129,26 +130,24 @@ function App() {
     9: "Po rekonstrukci",
   };
 
-  var house = {
-    lat: undefined,
-    lon: undefined,
-    usable_area: 0,
-    land_area: 0,
-    garage: false,
-    new: false,
-    furnished: false,
-    cellar: false,
-    parkingLots: false,
-    reconstructed: false,
-    region: undefined,
-    district: undefined,
-    room_count: 0,
-    condition: undefined
-  };
+  const [lat, setLat] = useState(undefined);
+  const [lon, setLon] = useState(undefined);
+  const [usableArea, setUsableArea] = useState(0);
+  const [landArea, setLandArea] = useState(0);
+  const [garage, setGarage] = useState(false);
+  const [isNew, setIsNew] = useState(false);
+  const [furnished, setFurnished] = useState(false);
+  const [cellar, setCellar] = useState(false);
+  const [parkingLots, setParkingLots] = useState(false);
+  const [reconstructed, setReconstructed] = useState(false);
+  const [region, setRegion] = useState(undefined);
+  const [district, setDistrict] = useState(undefined);
+  const [roomCount, setRoomCount] = useState(0);
+  const [condition, setCondition] = useState(undefined);
 
   return (
     <div className='container'>
-    <TextField id="usable_area" label="Usable area" type="number" variant="filled" defaultValue={0}
+    <TextField id="usable_area" label="Usable area" type="number" variant="filled" value={usableArea} onChange={(e) =>{setUsableArea(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
           shrink: true,
@@ -156,7 +155,7 @@ function App() {
       }}
     />
 
-    <TextField id="land_area" label="Land area" type="number" variant="filled" defaultValue={0}
+    <TextField id="land_area" label="Land area" type="number" variant="filled" value={landArea} onChange={(e) =>{setLandArea(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
           shrink: true,
@@ -164,16 +163,16 @@ function App() {
       }}
     />
     <FormGroup>
-      <FormControlLabel id="garage" control={<Checkbox />} label="Garage" />
-      <FormControlLabel id="new" control={<Checkbox />} label="New" />
-      <FormControlLabel id="furnished" control={<Checkbox />} label="Furnished" />
-      <FormControlLabel id="cellar" control={<Checkbox />} label="Cellar" />
-      <FormControlLabel id="parkingLots" control={<Checkbox />} label="Parking Lots" />
-      <FormControlLabel id="reconstructed" control={<Checkbox />} label="Reconstructed" />
+      <FormControlLabel id="garage" control={<Checkbox onChange={() => {setGarage(g => !g )}}/>} label="Garage" />
+      <FormControlLabel id="new" control={<Checkbox onChange={() => {setIsNew(n => !n )}}/>} label="New" />
+      <FormControlLabel id="furnished" control={<Checkbox onChange={() => {setFurnished(f => !f )}}/>} label="Furnished" />
+      <FormControlLabel id="cellar" control={<Checkbox onChange={() => {setCellar(c => !c )}}/>} label="Cellar" />
+      <FormControlLabel id="parkingLots" control={<Checkbox onChange={() => {setParkingLots(p => !p )}}/>} label="Parking Lots" />
+      <FormControlLabel id="reconstructed" control={<Checkbox onChange={() => {setReconstructed(r => !r )}}/>} label="Reconstructed" />
     </FormGroup>
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Region</InputLabel>
-      <Select labelId="demo-simple-select-autowidth-label" id="region" autoWidth label="Region">
+      <Select labelId="demo-simple-select-autowidth-label" id="region" autoWidth label="Region" onChange={(e) =>{setRegion(parseInt(e.target.value))}}>
         {Object.entries(regions).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
@@ -181,13 +180,13 @@ function App() {
     </FormControl>
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">District</InputLabel>
-      <Select labelId="demo-simple-select-autowidth-label" id="district" autoWidth label="District">
+      <Select labelId="demo-simple-select-autowidth-label" id="district" autoWidth label="District" onChange={(e) =>{setDistrict(parseInt(e.target.value))}}>
         {Object.entries(districts).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
       </Select>
     </FormControl>
-    <TextField id="room_count" label="Room count" type="number" variant="filled" defaultValue={0}
+    <TextField id="room_count" label="Room count" type="number" variant="filled" value={roomCount} onChange={(e) =>{setRoomCount(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
           shrink: true,
@@ -196,13 +195,13 @@ function App() {
     />
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Condition</InputLabel>
-      <Select labelId="demo-simple-select-autowidth-label" id="condition" autoWidth label="Condition">
+      <Select labelId="demo-simple-select-autowidth-label" id="condition" autoWidth label="Condition" onChange={(e) =>{setCondition(parseInt(e.target.value))}}>
         {Object.entries(conditions).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
       </Select>
     </FormControl>
-    <Button variant="contained">Contained</Button>
+    <Button variant="contained" onClick={() =>{console.log({ lat, lon, usableArea, landArea, garage, isNew, furnished, cellar, parkingLots, reconstructed, region, district, roomCount, condition })}}>Predict</Button>
     </div>
   )
 }
