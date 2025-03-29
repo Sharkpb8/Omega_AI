@@ -11,13 +11,17 @@ body {
 }
 
 .container {
-  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 40px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   max-width: 500px;
   width: 90%;
   text-align: center;
+  height: 100%;
 }
 
 /* Headings */
@@ -52,32 +56,22 @@ h1, h2 {
   color: #42a5f5;
 }
 
+.MuiInputLabel-root.Mui-focused {
+  color: rgba(9,42,77,255) !important; /* Barva labelu při focusu */
+}
+
 /* Underline */
 .MuiFilledInput-root::after {
   border-bottom: 2px solid #42a5f5;
 }
 
 /* Checkbox and Form Control styling */
-.MuiFormControl-root {
-  margin-bottom: 20px;
-}
-
-.MuiFormControlLabel-root {
-  color: #ffffff;
-  font-size: 14px;
-  transition: transform 0.2s ease;
-}
-
-.MuiFormControlLabel-root:hover {
-  transform: scale(1.05);
+.MuiCheckbox-root.Mui-checked {
+  color: rgb(0, 0, 0) !important; /* Ensure checkmark stays black */
 }
 
 .MuiCheckbox-root {
-  color: #42a5f5;
-}
-
-.MuiCheckbox-root.Mui-checked {
-  color: #42a5f5;
+  width: 50px !important; /* Ensure the checkbox has a width of 50px */
 }
 
 /* Select Input Styling */
@@ -126,4 +120,33 @@ h1, h2 {
   .MuiInputLabel-root {
     font-size: 14px;
   }
+}
+
+.MuiButton-contained {
+  background-color: #42a5f5 !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: 15px 30px !important; /* Increased padding for bigger button */
+  border-radius: 8px !important;
+  font-size: 16px !important; /* Bigger text */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+  margin-bottom: 30px !important; /* Increased space at the bottom */
+}
+
+.MuiButton-contained:hover {
+  background-color: #1e88e5 !important;
+  box-shadow: 0 0 10px #42a5f5 !important;
+}
+
+/* Center alignment for the form elements */
+.MuiTextField-root,
+.MuiSelect-root,
+.MuiCheckbox-root,
+.MuiFormControl-root {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.MuiFormControlLabel-root {
+  max-width: 200px;
 }

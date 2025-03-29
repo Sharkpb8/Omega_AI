@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
 function App() {
 
@@ -128,31 +129,39 @@ function App() {
     9: "Po rekonstrukci",
   };
 
-  const textFieldSx = {
-    backgroundColor: "rgba(50, 50, 50, 0.6)",
-    "& .MuiInputLabel-root": { color: "#b0bec5" },
-    "& .MuiInputLabel-root.Mui-focused": { color: "#42a5f5" },
-    "& .MuiFilledInput-root::after": { borderBottomColor: "#42a5f5" }
+  var house = {
+    lat: undefined,
+    lon: undefined,
+    usable_area: 0,
+    land_area: 0,
+    garage: false,
+    new: false,
+    furnished: false,
+    cellar: false,
+    parkingLots: false,
+    reconstructed: false,
+    region: undefined,
+    district: undefined,
+    room_count: 0,
+    condition: undefined
   };
 
   return (
-    <>
-    <TextField id="usable_area" label="Usable area" type="number" variant="filled"
+    <div className='container'>
+    <TextField id="usable_area" label="Usable area" type="number" variant="filled" defaultValue={0}
       slotProps={{
         inputLabel: {
           shrink: true,
         },
       }}
-      sx={{textFieldSx}}
     />
 
-    <TextField id="land_area" label="Land area" type="number" variant="filled"
+    <TextField id="land_area" label="Land area" type="number" variant="filled" defaultValue={0}
       slotProps={{
         inputLabel: {
           shrink: true,
         },
       }}
-      sx={{textFieldSx}}
     />
     <FormGroup>
       <FormControlLabel id="garage" control={<Checkbox />} label="Garage" />
@@ -178,13 +187,12 @@ function App() {
         ))}
       </Select>
     </FormControl>
-    <TextField id="room_count" label="Room count" type="number" variant="filled"
+    <TextField id="room_count" label="Room count" type="number" variant="filled" defaultValue={0}
       slotProps={{
         inputLabel: {
           shrink: true,
         },
       }}
-      sx={{textFieldSx}}
     />
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Condition</InputLabel>
@@ -194,7 +202,8 @@ function App() {
         ))}
       </Select>
     </FormControl>
-    </>
+    <Button variant="contained">Contained</Button>
+    </div>
   )
 }
 
