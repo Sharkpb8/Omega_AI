@@ -9,6 +9,11 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents  } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
 
 function App() {
 
@@ -130,8 +135,7 @@ function App() {
     9: "Po rekonstrukci",
   };
 
-  const [lat, setLat] = useState(undefined);
-  const [lon, setLon] = useState(undefined);
+  const [position, setPosition] = useState({"lat":50.075439, "lng":14.426021});
   const [usableArea, setUsableArea] = useState(0);
   const [landArea, setLandArea] = useState(0);
   const [garage, setGarage] = useState(false);
@@ -145,8 +149,57 @@ function App() {
   const [roomCount, setRoomCount] = useState(0);
   const [condition, setCondition] = useState(undefined);
 
+
+  const getPrediction = () => {
+    let house = {
+      "lat":position.lat,
+      "lon":position.lng,
+      "usable_area":usableArea,
+      "land_area": landArea,
+      "garage": garage,
+      "new": isNew,
+      "furnished": furnished,
+      "cellar": cellar,
+      "parkingLots":parkingLots,
+      "reconstructed":reconstructed,
+      "region":region,
+      "district":district,
+      "room_count":roomCount,
+      "condition":condition
+    }
+    console.log(house)
+  }
+
+  const ClickableMap = () => {
+    useMapEvents({
+      click(e) {
+        setPosition(e.latlng);
+      }
+    });
+    return null;
+  };
+
+  const customIcon = L.icon({
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41]
+  });
+
   return (
     <div className='container'>
+      <div style={{marginBottom:"20px",cursor:"pointer"}}>
+      <MapContainer center={[50.075439, 14.426021]} zoom={13} style={{ height: '500px', width: '500px' }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; OpenStreetMap contributors"
+        />
+        <ClickableMap/>
+
+        {/* Marker appears where user clicks */}
+        <Marker position={position} icon={customIcon}/>
+      </MapContainer>
+      </div>
     <TextField id="usable_area" label="Usable area" type="number" variant="filled" value={usableArea} onChange={(e) =>{e.target.value<0?0: setUsableArea(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
@@ -201,7 +254,7 @@ function App() {
         ))}
       </Select>
     </FormControl>
-    <Button variant="contained" onClick={() =>{console.log({ lat, lon, usableArea, landArea, garage, isNew, furnished, cellar, parkingLots, reconstructed, region, district, roomCount, condition })}}>Predict</Button>
+    <Button variant="contained" onClick={()=> getPrediction()}>Predict</Button>
     </div>
   )
 }
