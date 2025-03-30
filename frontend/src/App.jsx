@@ -13,7 +13,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents  } from 'react-lea
 import 'leaflet/dist/leaflet.css';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
+import Typography from '@mui/material/Typography';
 
 function App() {
 
@@ -144,11 +144,12 @@ function App() {
   const [cellar, setCellar] = useState(false);
   const [parkingLots, setParkingLots] = useState(false);
   const [reconstructed, setReconstructed] = useState(false);
-  const [region, setRegion] = useState(undefined);
-  const [district, setDistrict] = useState(undefined);
+  const [region, setRegion] = useState(10);
+  const [district, setDistrict] = useState(82);
   const [roomCount, setRoomCount] = useState(0);
-  const [condition, setCondition] = useState(undefined);
+  const [condition, setCondition] = useState(1);
 
+  const [result,setResult] = useState("No prediction yet")
 
   const getPrediction = () => {
     let house = {
@@ -168,6 +169,21 @@ function App() {
       "condition":condition
     }
     console.log(house)
+    fetch('http://127.0.0.1:8080/api/predict', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(house)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Prediction result:', data);
+      setResult(data.value)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 
   const ClickableMap = () => {
@@ -225,7 +241,7 @@ function App() {
     </FormGroup>
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Region</InputLabel>
-      <Select labelId="demo-simple-select-autowidth-label" id="region" autoWidth label="Region" onChange={(e) =>{setRegion(parseInt(e.target.value))}}>
+      <Select labelId="demo-simple-select-autowidth-label" id="region" autoWidth label="Region" defaultValue={region} onChange={(e) =>{setRegion(parseInt(e.target.value))}}>
         {Object.entries(regions).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
@@ -233,7 +249,7 @@ function App() {
     </FormControl>
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">District</InputLabel>
-      <Select labelId="demo-simple-select-autowidth-label" id="district" autoWidth label="District" onChange={(e) =>{setDistrict(parseInt(e.target.value))}}>
+      <Select labelId="demo-simple-select-autowidth-label" id="district" autoWidth label="District" defaultValue={district} onChange={(e) =>{setDistrict(parseInt(e.target.value))}}>
         {Object.entries(districts).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
@@ -248,13 +264,15 @@ function App() {
     />
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Condition</InputLabel>
-      <Select labelId="demo-simple-select-autowidth-label" id="condition" autoWidth label="Condition" onChange={(e) =>{setCondition(parseInt(e.target.value))}}>
+      <Select labelId="demo-simple-select-autowidth-label" id="condition" autoWidth label="Condition" defaultValue={condition} onChange={(e) =>{setCondition(parseInt(e.target.value))}}>
         {Object.entries(conditions).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
       </Select>
     </FormControl>
     <Button variant="contained" onClick={()=> getPrediction()}>Predict</Button>
+    <Typography variant="h2" gutterBottom sx={{color:"black"}}>House cost:</Typography>
+    <Typography variant="h4" gutterBottom sx={{color:"black"}}>{result}</Typography>
     </div>
   )
 }
