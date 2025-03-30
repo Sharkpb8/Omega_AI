@@ -123,6 +123,15 @@ function App() {
     38: "Zlín",
   };
 
+  const roomCounts = {
+    1: "1 pokoj",
+    2: "2 pokoje",
+    3: "3 pokoje",
+    4: "4 pokoje",
+    5: "5 a více pokojů",
+    6: "Atypický"
+  };
+
   const conditions = {
     1: "Velmi dobrý",
     2: "Dobrý",
@@ -146,7 +155,7 @@ function App() {
   const [reconstructed, setReconstructed] = useState(false);
   const [region, setRegion] = useState(10);
   const [district, setDistrict] = useState(82);
-  const [roomCount, setRoomCount] = useState(0);
+  const [roomCount, setRoomCount] = useState(1);
   const [condition, setCondition] = useState(1);
 
   const [result,setResult] = useState("No prediction yet")
@@ -255,13 +264,14 @@ function App() {
         ))}
       </Select>
     </FormControl>
-    <TextField id="room_count" label="Room count" type="number" variant="filled" value={roomCount} onChange={(e) =>{e.target.value<0?0: setRoomCount(parseInt(e.target.value))}}
-      slotProps={{
-        inputLabel: {
-          shrink: true,
-        },
-      }}
-    />
+    <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <InputLabel id="demo-simple-select-autowidth-label">Room count</InputLabel>
+      <Select labelId="demo-simple-select-autowidth-label" id="room_count" autoWidth label="Room count" defaultValue={roomCount} onChange={(e) =>{setRoomCount(parseInt(e.target.value))}}>
+        {Object.entries(roomCounts).map(([id, name]) => (
+          <MenuItem key={id} value={id}>{name}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Condition</InputLabel>
       <Select labelId="demo-simple-select-autowidth-label" id="condition" autoWidth label="Condition" defaultValue={condition} onChange={(e) =>{setCondition(parseInt(e.target.value))}}>
