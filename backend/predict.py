@@ -1,6 +1,7 @@
 import pickle
 import json
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 def Predict(house):
     with open("./SavedModels/LinearRegression.dat","rb") as f:
@@ -13,7 +14,9 @@ def Predict(house):
         if key in modelAttr:
             data.append(val)
     pd_data = pd.DataFrame([data],columns=modelAttr)
-    result = model.predict(pd_data)
+    scaler = StandardScaler()
+    scaledData = scaler.fit_transform(pd_data)
+    result = model.predict(scaledData)
     result = int(result)
     formatedResult = "{:,}".format(result).replace(",", " ")
     
