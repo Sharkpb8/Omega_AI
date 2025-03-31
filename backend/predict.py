@@ -15,8 +15,8 @@ def Predict(house):
             data.append(val)
     pd_data = pd.DataFrame([data],columns=modelAttr)
     scaler = StandardScaler()
-    scaledData = scaler.fit_transform(pd_data)
-    result = model.predict(scaledData)
+    # pd_data = scaler.fit_transform(pd_data)
+    result = model.predict(pd_data)
     result = int(result)
     formatedResult = "{:,}".format(result).replace(",", " ")
     
