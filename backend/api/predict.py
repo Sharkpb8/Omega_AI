@@ -4,9 +4,9 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 def Predict(house):
-    with open("../training/SavedModels/LinearRegression.dat","rb") as f:
+    with open("./backend/training/SavedModels/RandomForestRegression.dat","rb") as f:
         model = pickle.load(f)
-    with open("../training/SavedModels/LinearRegression.json","r") as f:
+    with open("./backend/training/SavedModels/RandomForestRegression.json","r") as f:
         modelAttr = json.load(f)
 
     data = []
@@ -20,4 +20,4 @@ def Predict(house):
     result = int(result)
     formatedResult = "{:,}".format(result).replace(",", " ")
     
-    return formatedResult
+    return f"{formatedResult} KČ"
