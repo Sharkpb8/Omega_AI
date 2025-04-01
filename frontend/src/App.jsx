@@ -251,7 +251,7 @@ function App() {
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Region</InputLabel>
       <Select labelId="demo-simple-select-autowidth-label" id="region" autoWidth label="Region" defaultValue={region} onChange={(e) =>{setRegion(parseInt(e.target.value))}}>
-        {Object.entries(regions).map(([id, name]) => (
+        {Object.entries(regions).sort((a, b) => a[1].localeCompare(b[1])).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
       </Select>
@@ -259,7 +259,7 @@ function App() {
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">District</InputLabel>
       <Select labelId="demo-simple-select-autowidth-label" id="district" autoWidth label="District" defaultValue={district} onChange={(e) =>{setDistrict(parseInt(e.target.value))}}>
-        {Object.entries(districts).map(([id, name]) => (
+        {Object.entries(districts).sort((a, b) => a[1].localeCompare(b[1])).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
       </Select>
