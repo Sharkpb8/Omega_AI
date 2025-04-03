@@ -1,4 +1,2 @@
-class NameValueError(Exception):
-    pass
-class LastNameValueError(Exception):
+class AttrAmmountError(Exception):
     pass

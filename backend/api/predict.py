@@ -14,7 +14,7 @@ def Predict(house):
         if key in modelAttr:
             data.append(val)
     if(len(data) != len(modelAttr)):
-        raise KeyError
+        raise AttrAmmountError
     pd_data = pd.DataFrame([data],columns=modelAttr)
     result = model.predict(pd_data)
     result = int(result)

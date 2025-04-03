@@ -2,6 +2,7 @@ from flask import Flask, request, make_response
 from flask_cors import CORS
 from predict import Predict
 from config import Config
+from Errors import *
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:5173"])
@@ -10,9 +11,13 @@ CORS(app, origins=["http://localhost:5173"])
 @app.route('/api/predict', methods=['POST'])
 def predictPrice():
     house = request.get_json()
-    result = Predict(house)
-    response = {"value":result}
-    return make_response(response,200)
+    try:
+        result = Predict(house)
+    except AttrAmmountError:
+        return make_response("Incorect ammount of correct attributes",400)
+    else:
+        response = {"value":result}
+        return make_response(response,200)
 
 if __name__ == "__main__":
     conf = Config("./backend/api/config.json")
