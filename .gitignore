@@ -4,3 +4,4 @@ __pycache__
 **/SavedModels/*.dat
 **/SavedModels/*Data.json
 package-lock.json
+*.log
