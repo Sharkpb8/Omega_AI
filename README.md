@@ -88,3 +88,16 @@ npm i
 npm run dev
 ```
 9. open this url in web browser: [http://localhost:5173](http://localhost:5173)
+
+# Warnings
+Data was trained on a data set of 15 700 houeses with these limitations:
+- price < 70 000 000
+- land area < 8 000
+- usable area < 2 000
+- lat and lon (location) is in czech republic
+- garage,new, furnished, cellar, parkingLots, reconstructed must be 1 (true) or 0 (false)
+- region, district, room_count, condition is based on these ids [Sreality codes](https://github.com/tomFlidr/sreality-configurable-rss/blob/master/config.php)
+
+It is not recomended to try predicting houses with price larger than 20 milions as the prediction will be very inaccurate
+
+The models accuracy, even though sometimes very precise (in the hundreds of thousands), can occasionally display numbers higher than those aimed for (less than 3 million), as the model is not always perfectly precise.
