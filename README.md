@@ -15,7 +15,16 @@ This project is a application writen in Python and is used to predict a price of
 
 
 ## Application Architecture
-<!-- TODO  -->
+![Image](./doc/Architecture-diagram.png "ER-diagram")
+
+- User
+  - This is the client that acceses this app.
+- Interface
+  - This is web interface that is used to recive and show data.
+- API
+  - This is used to recive data from interface and used model to predict price and send prediction back.
+- Saved Model
+  - This is the pre trained model used to make future prediction.
 
 
 ## Configuration Options
@@ -28,58 +37,54 @@ Configurations are set in `/backend/api/config.json`:
 
 Refer to `/backend/api/config.json` for valid configuration.
 
----
+
 # Documentation and Reporting
-## Description
 ### Overview
-The Train Simulation Program allows users to:
-- Add and remove trains.
-- Add and remove stations for each train.
-- Simulate train journeys with logs, delays, and fuel management.
+This application predicts house prices based on user input recived from react frontend that is then send to backend via flask. The backend processes the data and uses a trained model to generate a price prediction.
 
 ### How It Works
-1. **Menu**:
-   - The user selects actions like adding trains, managing stations, or starting a simulation.
-2. **Train Management**:
-   - Add trains with attributes like speed, capacity, and fuel.
-   - Delete trains when they’re no longer needed.
-3. **Station Management**:
-   - Add stations to a train’s route with distances.
-   - Remove stations if needed.
-4. **Simulation**:
-   - Runs a journey for the trains, logging actions like movement, delays, and refueling.
-
-Logs are saved in the `/logs/` folder, and train configurations can be loaded from `trains.json`.
-
-## Testing
-Unit testing results shows 97% coverage
+1. **Frontend (React)**:
+   - React web page build using MUI library to enter house details (e.g., number of rooms, location, etc.).
+2. **Backend (Flask API)**:
+   - Handles requests from React, preprocesses data, predicts price with pre trained model and returns prediction.
 
 ## Sources and consulted
+- [Sreality codes for regions districts and etc.](https://github.com/tomFlidr/sreality-configurable-rss/blob/master/config.php)
 - ChatGPT
-- Wikipedia
-- W3Schools
-- GeeksforGeeks
-- Python Docs
+  - CSS for web
+    - [Link 1](https://chatgpt.com/share/67e80827-58d8-8003-80bb-67901bdd3a9c)
+    - [Link 2](https://chatgpt.com/share/67e8083e-6a7c-8003-9ede-6a4ce037e209)
+    - [Link 3](https://chatgpt.com/share/67e80856-d058-8003-9d74-d6818e44cb4c)
+  - [SReality api guide](https://chatgpt.com/share/67ee9535-2cf0-8003-adc5-c4d8dc76e502)
 - Martin Hornych
 - Tomáš Križko
 - Ondra Kábrt
----
-## Installation and Execution
-### Requirements
+
+
+## Installation
+### Dependencies
 - Python 3.x installed.
+- Nodejs
 
-### Code Build
+### How to run
 1. Clone the project from `https://github.com/Sharkpb8/Omega_AI`.
-2. Execute these comands:
-   - python3 -m venv venv
-   - cd ./venv/Scripts
-   - ./pip.exe install asyncio
-3. Start `Main.py`
-
-
-### Execution
-1. Download the project release from `https://github.com/Sharkpb8/Omega_AI`.
-2. Start `Main.exe`.
-3. Add trains manualy or from file
-4. start simulation
-5. in logs there will be log for each train about its informations
+2. Naviagte to project folder using powershell
+3. Execute these comands:
+```bash
+   python3 -m venv venv
+   ./venv/Scripts/pip.exe install -r ./requirements.txt
+   ```
+5. Start api using this command:
+```bash
+& disk:/path/to/project/Omega_AI/venv/Scripts/python.exe disk:/path/to/project/Omega_AI/backend/api/routes.py
+```
+6. navigate to `frontend`
+2. Execute this command:
+```bash
+npm i
+```
+8. Then start the react app using:
+```bash
+npm run dev
+```
+9. open this url in web browser: [http://localhost:5173](http://localhost:5173)
