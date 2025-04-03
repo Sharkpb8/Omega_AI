@@ -18,6 +18,8 @@ def Predict(house):
     data = []
     for key,val in house.items():
         if key in modelAttr:
+            if not isinstance(val,(int,bool)) or val <0:
+                raise ValueError
             data.append(val)
     if(len(data) != len(modelAttr)):
         raise AttrAmmountError

@@ -17,6 +17,8 @@ def predictPrice():
         return make_response("Incorect ammount of correct attributes",400)
     except ModelNotFoundError:
         return make_response("Configured model wasnt found",500)
+    except ValueError:
+        return make_response("All values have to be whole positive numbers",400)
     else:
         response = {"value":result}
         return make_response(response,200)
