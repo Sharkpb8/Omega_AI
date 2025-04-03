@@ -15,6 +15,8 @@ def predictPrice():
         result = Predict(house)
     except AttrAmmountError:
         return make_response("Incorect ammount of correct attributes",400)
+    except ModelNotFoundError:
+        return make_response("Configured model wasnt found",500)
     else:
         response = {"value":result}
         return make_response(response,200)

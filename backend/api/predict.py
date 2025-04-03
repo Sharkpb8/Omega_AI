@@ -2,12 +2,18 @@ import pickle
 import json
 import pandas as pd
 from Errors import *
+from config import Config
 
 def Predict(house):
-    with open("./backend/training/SavedModels/GradientBoostingRegressor.dat","rb") as f:
-        model = pickle.load(f)
-    with open("./backend/training/SavedModels/GradientBoostingRegressor.json","r") as f:
-        modelAttr = json.load(f)
+    conf = Config("./backend/api/config.json")
+    modelType = ip = conf.read("model/type",str)
+    try:
+        with open(f"./backend/training/SavedModels/{modelType}.dat","rb") as f:
+            model = pickle.load(f)
+        with open(f"./backend/training/SavedModels/{modelType}.json","r") as f:
+            modelAttr = json.load(f)
+    except Exception:
+        raise ModelNotFoundError
 
     data = []
     for key,val in house.items():
