@@ -56,6 +56,7 @@ This application predicts house prices based on user input recived from react fr
     - [Link 2](https://chatgpt.com/share/67e8083e-6a7c-8003-9ede-6a4ce037e209)
     - [Link 3](https://chatgpt.com/share/67e80856-d058-8003-9d74-d6818e44cb4c)
   - [SReality api guide](https://chatgpt.com/share/67ee9535-2cf0-8003-adc5-c4d8dc76e502)
+- [Leaflet tutorial](https://leafletjs.com/examples/quick-start/)
 - Martin Hornych
 - Tomáš Križko
 - Ondra Kábrt
