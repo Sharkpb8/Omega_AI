@@ -185,13 +185,20 @@ function App() {
       },
       body: JSON.stringify(house)
     })
-    .then(response => response.json())
+    .then(response => {
+      if(!response.ok){
+        throw new Error(`HTTP error! Status: ${response.status}`)
+      }else{
+        return response.json()
+      }
+    })
     .then(data => {
       console.log('Prediction result:', data);
-      setResult(data.value)
+        setResult(data.value)
     })
     .catch(error => {
       console.error('Error:', error);
+      setResult("Predikce selhala")
     });
   }
 

@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, make_response
 from flask_cors import CORS
 from predict import Predict
 from config import Config
@@ -11,7 +11,8 @@ CORS(app, origins=["http://localhost:5173"])
 def predictPrice():
     house = request.get_json()
     result = Predict(house)
-    return {"value":result}
+    response = {"value":result}
+    return make_response(response,200)
 
 if __name__ == "__main__":
     conf = Config("./backend/api/config.json")

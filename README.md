@@ -11,32 +11,25 @@
 
 
 ## Project Overview
-This project is a application writen in Python and is used to predict a price of house based on given attributes.
+This project is a application writen in Python and is used to predict a price of house based on given attributes in a web UI.
 
 
 ## Application Architecture
-The application uses a modular structure:
-- **Main Program (`main.py`)**: Manages user interactions and calls simulation functions.
-- **Simulation Module (`simulation.py`)**: Handles train simulations, including delays, passenger management, and fuel refills.
-- **Doubly Linked List (`DoublyLinkedList.py`)**: Implements linked list functionality for station management.
+<!-- TODO  -->
 
 
 ## Configuration Options
-Configurations are set in `config.json`:
-- `allowedtypes`: List of allowed types of trains.
+Configurations are set in `/backend/api/config.json`:
+- `api`: Dictionary containing api configuration.
 - simulation
-  - `mimimum-delay` and `maximum-delay`: Minimum and maximum delay of train. (Cant use decimal numbers)
-  - `delay-chance`: Probability of a delay of train. (Cant use decimal numbers)
-  - `min-fill` and `max-fill`: Minimum and maximum passangers that can be loaded. (Cant use decimal numbers)
-  - `geton-time`: Time in S to load on passangers.
-  - `getoff-time`: Time in S to load off passangers.
-  - `fuel-time`: Time taken for refueling. (Cant use decimal numbers)
-  - `max-refuel`: Maximum addicional ammount of fuel in % to be added to train when refueling (Cant use decimal numbers)
+  - `ip`: Ip to use for the api
+  - `port`: Port used in api
+  - `debug` : Wheater to use debug or not
 
-Refer to `config.json` for valid configurations.
+Refer to `/backend/api/config.json` for valid configuration.
 
 ---
-## Documentation and Reporting
+# Documentation and Reporting
 ## Description
 ### Overview
 The Train Simulation Program allows users to:
@@ -76,7 +69,7 @@ Unit testing results shows 97% coverage
 - Python 3.x installed.
 
 ### Code Build
-1. Clone the project from `https://github.com/Sharkpb8/Alfa_1_Parallel_programming`.
+1. Clone the project from `https://github.com/Sharkpb8/Omega_AI`.
 2. Execute these comands:
    - python3 -m venv venv
    - cd ./venv/Scripts
@@ -85,7 +78,7 @@ Unit testing results shows 97% coverage
 
 
 ### Execution
-1. Download the project release from `https://github.com/Sharkpb8/Alfa_1_Parallel_programming`.
+1. Download the project release from `https://github.com/Sharkpb8/Omega_AI`.
 2. Start `Main.exe`.
 3. Add trains manualy or from file
 4. start simulation

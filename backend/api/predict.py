@@ -1,6 +1,7 @@
 import pickle
 import json
 import pandas as pd
+from Errors import *
 
 def Predict(house):
     with open("./backend/training/SavedModels/GradientBoostingRegressor.dat","rb") as f:
@@ -12,6 +13,8 @@ def Predict(house):
     for key,val in house.items():
         if key in modelAttr:
             data.append(val)
+    if(len(data) != len(modelAttr)):
+        raise KeyError
     pd_data = pd.DataFrame([data],columns=modelAttr)
     result = model.predict(pd_data)
     result = int(result)
