@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
 from predict import Predict
+from config import Config
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:5173"])
@@ -13,4 +14,11 @@ def predictPrice():
     return {"value":result}
 
 if __name__ == "__main__":
-    app.run("127.0.0.1",8080,True)
+    conf = Config("./backend/api/config.json")
+    ip = conf.read("api/ip",str)
+    port = conf.read("api/port",int)
+    debug = conf.read("api/debug",bool)
+    if(not None in [ip,port,debug]):
+        app.run(ip,port,debug)
+    else:
+        print("Selhalo nastartování api")
