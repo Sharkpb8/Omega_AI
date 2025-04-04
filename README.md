@@ -11,7 +11,7 @@
 
 
 ## Project Overview
-This project is a application writen in Python and is used to predict a price of house based on given attributes in a web UI.
+This project is a application writen in Python and is used to predict a price of house based on given attributes in a react web UI.
 
 
 ## Application Architecture
