@@ -75,20 +75,20 @@ This application predicts house prices based on user input recived from react fr
    python3 -m venv venv
    ./venv/Scripts/pip.exe install -r ./requirements.txt
    ```
-5. Start api using this command:
+4. Start api using this command:
 ```bash
 & disk:/path/to/project/Omega_AI/venv/Scripts/python.exe disk:/path/to/project/Omega_AI/backend/api/routes.py
 ```
-6. navigate to `frontend`
+5. navigate to `frontend`
 2. Execute this command:
 ```bash
 npm i
 ```
-8. Then start the react app using:
+7. Then start the react app using:
 ```bash
 npm run dev
 ```
-9. open this url in web browser: [http://localhost:5173](http://localhost:5173)
+8. open this url in web browser: [http://localhost:5173](http://localhost:5173)
 
 # Warnings
 Data was trained on a data set of 15 700 houeses with these limitations:

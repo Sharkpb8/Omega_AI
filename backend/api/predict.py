@@ -6,7 +6,7 @@ from config import Config
 
 def Predict(house):
     conf = Config("./backend/api/config.json")
-    modelType = ip = conf.read("model/type",str)
+    modelType = conf.read("model/type",str)
     try:
         with open(f"./backend/training/SavedModels/{modelType}.dat","rb") as f:
             model = pickle.load(f)
