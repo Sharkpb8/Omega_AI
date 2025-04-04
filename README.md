@@ -26,6 +26,43 @@ This project is a application writen in Python and is used to predict a price of
 - Saved Model
   - This is the pre trained model used to make future prediction.
 
+File structure
+```text
+Omega_AI/
+├── backend/
+│   ├── api/
+│   │   ├── config.json   #configuration for api
+│   │   ├── config.py   #config used to read config
+│   │   ├── Errors.py   #errors used in api
+│   │   ├── predict.py   #load model and predict data
+│   │   └── routes.py   #routes for api
+│   └── training/
+│       ├── Data_collection/
+│       │   ├── Cleaning.ipynb   #cleaning of collected data
+│       │   └── Sreality.ipynb   #data collection
+│       └── Models/
+│           ├── GradientBoostingRegressor.ipynb   #training of model
+│           ├── Linear_regression.ipynb   #training of model
+│           └── RandomForestRegression.ipynb   #training of model
+├── doc/
+│   ├── TestCases/
+│   │   ├── Application setup.pdf   #test case
+│   │   └── Prediction.pdf   #test case
+│   └── Architecture-diagram.png   #architecture diagram
+├── frontend/
+│   ├── public/
+│   │   └── favicon.png   #favicon for website
+│   ├── src/
+│   │   ├── App.jsx   #Web page
+│   │   ├── Footer.jsx   #Footer for web page
+│   │   └── main.jsx   #root element
+│   ├── vendor/
+│   │   └── App.css   #css for web page
+│   └── package.json   #packages for frontend
+├── .gitignore   #gitignore
+├── README.md   #readme
+└── requirements.txt #packges for backend
+```
 
 ## Configuration Options
 Configurations are set in `/backend/api/config.json`:
