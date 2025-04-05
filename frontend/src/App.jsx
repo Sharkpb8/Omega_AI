@@ -125,9 +125,9 @@ function App() {
 
   const roomCounts = {
     1: "1 room",
-    2: "2 room",
-    3: "3 room",
-    4: "4 room",
+    2: "2 rooms",
+    3: "3 rooms",
+    4: "4 rooms",
     5: "5 or more rooms",
     6: "Atypical"
   };
