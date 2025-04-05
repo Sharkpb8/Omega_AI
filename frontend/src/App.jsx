@@ -124,24 +124,24 @@ function App() {
   };
 
   const roomCounts = {
-    1: "1 pokoj",
-    2: "2 pokoje",
-    3: "3 pokoje",
-    4: "4 pokoje",
-    5: "5 a více pokojů",
-    6: "Atypický"
+    1: "1 room",
+    2: "2 room",
+    3: "3 room",
+    4: "4 room",
+    5: "5 or more rooms",
+    6: "Atypical"
   };
 
   const conditions = {
-    1: "Velmi dobrý",
-    2: "Dobrý",
-    3: "Špatný",
-    4: "Ve výstavbě",
-    5: "Developerské projekty",
-    6: "Novostavba",
-    7: "K demolici",
-    8: "Před rekonstrukcí",
-    9: "Po rekonstrukci",
+    1: "Very good",
+    2: "Good",
+    3: "bad",
+    4: "Under construction",
+    5: "Development projects",
+    6: "New",
+    7: "For demolition",
+    8: "Before renovation",
+    9: "After renovation",
   };
 
   const [position, setPosition] = useState({"lat":50.075439, "lng":14.426021});
@@ -198,7 +198,7 @@ function App() {
     })
     .catch(error => {
       console.error('Error:', error);
-      setResult("Predikce selhala")
+      setResult("Prediction failed")
     });
   }
 
