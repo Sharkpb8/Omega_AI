@@ -17,7 +17,7 @@ function Footer(){
         }}
         >
         <Typography variant="body2">
-            &copy; {new Date().getFullYear()} Adam Hlaváčik. Všechna práva vyhrazena.
+            &copy; {new Date().getFullYear()} Adam Hlaváčik. All rights reserved.
         </Typography>
         </Box>
         </>
