@@ -220,7 +220,7 @@ function App() {
 
   return (
     <div className='container'>
-      <div style={{marginBottom:"20px",cursor:"pointer"}}>
+      {/* <div style={{marginBottom:"20px",cursor:"pointer"}}>
       <MapContainer center={[50.075439, 14.426021]} zoom={13} style={{ height: '500px', width: '500px' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -228,10 +228,9 @@ function App() {
         />
         <ClickableMap/>
 
-        {/* Marker appears where user clicks */}
         <Marker position={position} icon={customIcon}/>
       </MapContainer>
-      </div>
+      </div> */}
     <TextField id="usable_area" label="Usable area" type="number" variant="filled" value={usableArea} onChange={(e) =>{e.target.value<0?0: setUsableArea(parseInt(e.target.value))}}
       slotProps={{
         inputLabel: {
@@ -248,21 +247,21 @@ function App() {
       }}
     />
     <FormGroup>
-      <FormControlLabel id="garage" control={<Checkbox onChange={() => {setGarage(g => !g )}}/>} label="Garage" />
+      {/* <FormControlLabel id="garage" control={<Checkbox onChange={() => {setGarage(g => !g )}}/>} label="Garage" /> */}
       <FormControlLabel id="new" control={<Checkbox onChange={() => {setIsNew(n => !n )}}/>} label="New" />
-      <FormControlLabel id="furnished" control={<Checkbox onChange={() => {setFurnished(f => !f )}}/>} label="Furnished" />
-      <FormControlLabel id="cellar" control={<Checkbox onChange={() => {setCellar(c => !c )}}/>} label="Cellar" />
+      {/* <FormControlLabel id="furnished" control={<Checkbox onChange={() => {setFurnished(f => !f )}}/>} label="Furnished" />
+      <FormControlLabel id="cellar" control={<Checkbox onChange={() => {setCellar(c => !c )}}/>} label="Cellar" /> */}
       <FormControlLabel id="parkingLots" control={<Checkbox onChange={() => {setParkingLots(p => !p )}}/>} label="Parking Lots" />
-      <FormControlLabel id="reconstructed" control={<Checkbox onChange={() => {setReconstructed(r => !r )}}/>} label="Reconstructed" />
+      {/* <FormControlLabel id="reconstructed" control={<Checkbox onChange={() => {setReconstructed(r => !r )}}/>} label="Reconstructed" /> */}
     </FormGroup>
-    <FormControl sx={{ m: 1, minWidth: 120 }}>
+    {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">Region</InputLabel>
       <Select labelId="demo-simple-select-autowidth-label" id="region" autoWidth label="Region" defaultValue={region} onChange={(e) =>{setRegion(parseInt(e.target.value))}}>
         {Object.entries(regions).sort((a, b) => a[1].localeCompare(b[1])).map(([id, name]) => (
           <MenuItem key={id} value={id}>{name}</MenuItem>
         ))}
       </Select>
-    </FormControl>
+    </FormControl> */}
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-autowidth-label">District</InputLabel>
       <Select labelId="demo-simple-select-autowidth-label" id="district" autoWidth label="District" defaultValue={district} onChange={(e) =>{setDistrict(parseInt(e.target.value))}}>
