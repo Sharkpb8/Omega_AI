@@ -108,16 +108,27 @@ This application predicts house prices based on user input recived from react fr
 1. Clone the project from `https://github.com/Sharkpb8/Omega_AI`.
 2. Naviagte to project folder using powershell
 3. Execute these comands:
+- for windows 10/11
 ```bash
    python3 -m venv venv
    ./venv/Scripts/pip.exe install -r ./requirements.txt
    ```
+- for linux
+```bash
+   python3 -m venv venv
+   ./venv/bin/pip.exe install -r ./requirements.txt
+   ```
 4. Start api using this command:
+- for windows 10/11
 ```bash
 & disk:/path/to/project/Omega_AI/venv/Scripts/python.exe disk:/path/to/project/Omega_AI/backend/api/routes.py
 ```
+- for linux
+```bash
+& /path/to/project/Omega_AI/venv/Scripts/python.exe /path/to/project/Omega_AI/backend/api/routes.py
+```
 5. navigate to `frontend`
-2. Execute this command:
+6. Execute this command:
 ```bash
 npm i
 ```
