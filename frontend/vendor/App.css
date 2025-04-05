@@ -25,6 +25,17 @@ body {
   margin: 10px;
 }
 
+.footercontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  margin-left: 30px;
+  margin-right: 40px;
+}
+
 /* Headings */
 h1, h2 {
   color: #ffffff;

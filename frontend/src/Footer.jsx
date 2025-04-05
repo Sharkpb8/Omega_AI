@@ -3,11 +3,11 @@ import Box from '@mui/material/Box';
 
 function Footer(){
     return(
-        <>
+        <div className='footercontainer'>
         <Box
         component="footer"
         sx={{
-            width: "100%",
+            width: "90%",
             py: 2,
             textAlign: "center",
             bgcolor: "grey.800",
@@ -20,7 +20,7 @@ function Footer(){
             &copy; {new Date().getFullYear()} Adam Hlaváčik. All rights reserved.
         </Typography>
         </Box>
-        </>
+        </div>
     );
 }
 
