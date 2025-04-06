@@ -28,4 +28,4 @@ def Predict(house):
     result = int(result)
     formatedResult = "{:,}".format(result).replace(",", " ")
     
-    return f"{formatedResult} KČ"
+    return f"{formatedResult} CZK"
