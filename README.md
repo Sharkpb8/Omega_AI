@@ -110,12 +110,12 @@ This application predicts house prices based on user input recived from react fr
 3. Execute these comands:
 - for windows 10/11
 ```bash
-   python3 -m venv venv
+   python.exe -m venv venv
    ./venv/Scripts/pip.exe install -r ./requirements.txt
    ```
 - for linux
 ```bash
-   python3 -m venv venv
+   python.exe -m venv venv
    ./venv/bin/pip.exe install -r ./requirements.txt
    ```
 4. Start api using this command:
