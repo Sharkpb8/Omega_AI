@@ -127,7 +127,7 @@ This application predicts house prices based on user input recived from react fr
 ```bash
 & /path/to/project/Omega_AI/venv/Scripts/python.exe /path/to/project/Omega_AI/backend/api/routes.py
 ```
-5. navigate to `frontend`
+5. navigate to `frontend` in new powershell
 6. Execute this command:
 ```bash
 npm i
